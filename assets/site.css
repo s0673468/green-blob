@@ -1,0 +1,287 @@
+@font-face {
+  font-family: Fraunces;
+  src: url("fraunces-latin.woff2") format("woff2");
+  font-weight: 100 900;
+  font-style: normal;
+  font-display: swap;
+}
+
+:root {
+  color-scheme: dark;
+  --ink: #fff3df;
+  --muted: #e4d8e3;
+  --gold: #ffdb8b;
+  --ground: #10162d;
+  --edge: #544963;
+  --serif: Fraunces, Georgia, serif;
+  --sans: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+}
+
+* { box-sizing: border-box; }
+body {
+  margin: 0;
+  color: var(--ink);
+  background: linear-gradient(180deg, #0c132bc4, #0c132d48 400px, var(--ground) 1450px),
+    var(--ground) url("paint.webp") center top / max(100%, 1240px) auto no-repeat;
+  font: 1rem/1.55 var(--sans);
+  -webkit-text-size-adjust: 100%;
+}
+
+img { display: block; max-width: 100%; height: auto; }
+a { color: inherit; text-underline-offset: .24em; }
+a:focus-visible { outline: 2px solid var(--gold); outline-offset: 4px; }
+h1, h2, p { margin: 0; }
+h1, h2 { font-family: var(--serif); font-weight: 700; line-height: 1.06; text-wrap: balance; }
+p { color: var(--muted); }
+h1, h2, .brand, .figure strong { font-variation-settings: "SOFT" 100, "WONK" 0; }
+.keep { white-space: nowrap; }
+.shell { width: min(1120px, calc(100% - 52px)); margin-inline: auto; }
+
+.masthead {
+  min-height: 88px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+}
+.brand {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  color: var(--ink);
+  font: 700 1.48rem/1.1 var(--serif);
+}
+.brand img {
+  width: 38px;
+  height: 38px;
+  border-radius: 11px;
+  box-shadow: 0 2px 8px #020511a0;
+}
+.languages {
+  display: flex;
+  padding: 3px;
+  border-radius: 999px;
+  border: 1px solid #766780;
+  background: #13162c;
+}
+.languages a {
+  display: grid;
+  place-items: center;
+  min-inline-size: 45px;
+  min-block-size: 44px;
+  padding-inline: 8px;
+  border-radius: inherit;
+  color: var(--muted);
+  font-size: .78rem;
+  font-weight: 700;
+  text-decoration: none;
+}
+.languages a[aria-current], .languages a:hover { background: #42334f; color: var(--ink); }
+
+.hero {
+  display: grid;
+  grid-template-columns: 1.03fr 1fr;
+  align-items: center;
+  gap: clamp(24px, 4vw, 62px);
+  margin-block: 22px 56px;
+}
+.hero h1 {
+  font-size: clamp(2.75rem, 5.25vw, 4.6rem);
+  letter-spacing: -.028em;
+  text-wrap: unset;
+}
+.hero h1 span { display: block; }
+.hero h1 span + span { color: var(--gold); }
+:lang(pt-BR) .hero h1, :lang(es) .hero h1 { font-size: clamp(2.65rem, 4.65vw, 4.05rem); }
+.hero p { max-width: 34ch; margin-top: 20px; font-size: clamp(1.02rem, 1.52vw, 1.22rem); }
+
+.stores {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 12px;
+  max-width: 370px;
+  margin-top: 28px;
+}
+.store {
+  display: grid;
+  place-items: center;
+  min-height: 52px;
+  border: 1px solid #796582;
+  border-radius: 15px 13px 15px 13px;
+  color: var(--ink);
+  background: linear-gradient(171deg, #514160, #332841 82%);
+  box-shadow: inset 0 1px #a38aa178, 0 3px 0 #21192c, 0 5px 10px #05071480;
+  font-weight: 700;
+  text-decoration: none;
+}
+.store:hover, .store:focus-visible { background: #584368; }
+
+.hero-art {
+  position: relative;
+  isolation: isolate;
+  display: grid;
+  place-items: center;
+  aspect-ratio: 1.13;
+  overflow: hidden;
+  border-radius: 25px;
+  border: 1px solid #9073a1;
+  background: #492455 url("violet.webp") center bottom / cover no-repeat;
+  box-shadow: 0 18px 52px #08081988;
+}
+.hero-art img {
+  position: absolute;
+  width: 68%;
+  bottom: 4%;
+  filter: drop-shadow(0 10px 10px #350f36a0);
+}
+
+.features {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 18px;
+  margin-bottom: 60px;
+}
+.feature {
+  overflow: hidden;
+  border: 1px solid var(--edge);
+  border-radius: 21px;
+  background: #1b1b35;
+}
+.feature-art {
+  display: grid;
+  place-items: center;
+  aspect-ratio: 1.56;
+  overflow: hidden;
+  margin: 5px 5px 0;
+  border: 1px solid var(--edge);
+  border-radius: 15px;
+}
+.feature-art > img { width: 100%; height: 100%; object-fit: cover; }
+.feature-faces {
+  --face-gap: 4px;
+  display: flex;
+  justify-content: center;
+  align-content: center;
+  align-items: center;
+  gap: var(--face-gap);
+  padding: 2px;
+  background: radial-gradient(ellipse at center, #33244855, #241b37bc 90%),
+    #25243f url("paint.webp") center 40% / cover;
+}
+.feature-faces > img {
+  flex: none;
+  width: calc((100% - 2 * var(--face-gap)) / 3);
+  height: auto;
+  border: 2px solid #49301f;
+  border-radius: 7% / 9.5%;
+  filter: drop-shadow(0 3px 5px #0d0d24a0);
+}
+.feature-copy { padding: 22px 22px 25px; }
+.feature h2 { font-size: clamp(1.62rem, 2.45vw, 2.1rem); letter-spacing: -.028em; text-wrap: unset; }
+.feature p { margin-top: 9px; }
+
+.study {
+  padding: 44px 24px 37px;
+  text-align: center;
+  background: #101a38;
+  border: 1px solid #4d5774;
+  border-radius: 23px;
+}
+.study h2, .privacy h2 { font-size: clamp(2rem, 3.65vw, 3.2rem); letter-spacing: -.035em; }
+.figures {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  width: min(660px, 100%);
+  margin: 28px auto 24px;
+}
+.figure { padding: 0 17px; }
+.figure + .figure { border-left: 1px solid #555672; }
+.figure strong {
+  display: block;
+  font: 700 clamp(2.85rem, 7vw, 6.15rem)/.98 var(--serif);
+  letter-spacing: -.045em;
+  color: var(--gold);
+  white-space: nowrap;
+}
+.figure + .figure strong { color: #e4d3b7; }
+.figure span { display: block; margin-top: 10px; color: var(--ink); }
+.study .footnote { font-size: .9rem; }
+
+.privacy {
+  display: grid;
+  grid-template-columns: 1.2fr 1fr;
+  align-items: center;
+  gap: 22px;
+  margin-top: 24px;
+  overflow: hidden;
+  border-radius: 23px;
+  border: 1px solid #705773;
+  background: #28192f;
+}
+.privacy-copy { padding: 30px 20px 30px 40px; }
+.privacy h2 { text-wrap: unset; }
+.privacy h2 span { display: inline-block; }
+.privacy p { margin-top: 12px; }
+.privacy img { width: 100%; aspect-ratio: 1.36; object-fit: cover; }
+
+.note { max-width: 65ch; margin: 56px auto; }
+.note h2 { font-size: clamp(1.55rem, 2.6vw, 2rem); text-wrap: balance; }
+.note p { margin-top: 9px; }
+.footer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 0 18px;
+  min-height: 79px;
+  margin-bottom: 16px;
+  border-top: 1px solid var(--edge);
+  font-size: .93rem;
+}
+.footer a { display: inline-flex; align-items: center; min-height: 44px; color: var(--gold); }
+
+@media (max-width: 850px) {
+  .shell { width: min(560px, calc(100% - 36px)); }
+  .masthead { min-height: 69px; }
+  .hero { grid-template-columns: minmax(0, 1fr); gap: 25px; margin-block: 25px 34px; }
+  .hero h1 { font-size: clamp(2.65rem, 9vw, 4.1rem); }
+  :lang(pt-BR) .hero h1, :lang(es) .hero h1 { font-size: clamp(2.45rem, 8vw, 3.65rem); }
+  .hero p { margin-top: 13px; }
+  .stores { margin-top: 21px; }
+  .hero-art { aspect-ratio: 1.26; }
+  body {
+    background-image: linear-gradient(180deg, #0c132be0, #0c132d65 330px, var(--ground) 710px),
+      url("paint.webp");
+    background-position: center top, center -214px;
+    background-size: auto, max(720px, 100%) auto;
+  }
+  .hero-art img { width: 66%; bottom: 4%; }
+  .feature-faces {
+    aspect-ratio: auto;
+    flex-wrap: wrap;
+    padding: 14px;
+  }
+  .feature-faces > img { width: max(100px, calc((100% - 2 * var(--face-gap)) / 3)); }
+  .features { grid-template-columns: minmax(0, 1fr); gap: 16px; margin-bottom: 36px; }
+  .feature-copy { padding: 18px 18px 21px; }
+  .study { padding: 30px 12px 28px; }
+  .figures { margin-block: 23px 21px; }
+  .figure { padding-inline: 6px; }
+  .figure span { font-size: .92rem; }
+  .privacy { grid-template-columns: minmax(0, 1fr); gap: 0; margin-top: 18px; }
+  .privacy-copy { padding: 25px 18px 21px; }
+
+  .note { margin-block: 33px; }
+  .footer { padding-top: 8px; margin-bottom: 8px; }
+}
+
+@media (max-width: 355px) {
+  .shell { width: calc(100% - 28px); }
+  .brand { gap: 6px; font-size: 1.16rem; }
+  .brand img { width: 32px; height: 32px; }
+  .languages a { min-inline-size: 41px; padding-inline: 6px; }
+}
+
+@media (forced-colors: active) {
+  .languages a[aria-current] { outline: 1px solid; }
+}
